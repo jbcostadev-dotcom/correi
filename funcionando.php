@@ -358,13 +358,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
       </div>
 
-      <!-- Botão de login (aparece apenas em telas grandes) -->
-      <div class="login">
-        <a href="#">
-          <img src="https://minhaencomenda.co/image/yellow/entrar.svg" alt="Entrar">
-          <span>Entrar</span>
-        </a>
-      </div>
+      
     </nav>
   </header>
 <div>

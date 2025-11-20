@@ -238,13 +238,7 @@ $dataFutura = date('d/m/Y', strtotime('+24 hours'));
         </a>
       </div>
 
-      <!-- Botão de login (aparece apenas em telas grandes) -->
-      <div class="login">
-        <a href="#">
-          <img src="https://minhaencomenda.co/image/yellow/entrar.svg" alt="Entrar">
-          <span>Entrar</span>
-        </a>
-      </div>
+      
     </nav>
   </header>
     <!-- Seção de verificação do pedido -->
