@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";
+$host = "zollim_correios";
 $dbname = "correioscpf";
 $username = "user";
 $password = "Zreel123!";

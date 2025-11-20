@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Dados do banco de dados
-    $servername = "localhost";
+    $servername = "zollim_correios";
     $username = "user";
     $password = "Zreel123!";
     $dbname = "correioscpf";
