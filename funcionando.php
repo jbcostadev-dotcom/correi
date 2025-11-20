@@ -258,7 +258,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       display: flex;
       align-items: center;
       background-color: #f7f7f7;
-      padding: 8px 16px;
+      width: 100%;
+      padding: 8px 0;
       border-bottom: 2px solid #ffc107;
     }
 

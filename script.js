@@ -1,15 +1,16 @@
 // Inicia o preenchimento da barra de progresso (se existir)
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
     const progressBar = document.getElementById('progress');
     if (progressBar) {
-        progressBar.style.width = '0%'; // Define a largura inicial como 0%
-
-        setTimeout(function() {
-            progressBar.style.transition = 'width 8s linear';
-            progressBar.style.width = '100%'; // Preenche a barra até 100% em 8 segundos
-        }, 200); // Pequeno atraso para garantir que a animação seja visível
+        progressBar.style.width = '0%';
+        requestAnimationFrame(function() {
+            setTimeout(function() {
+                progressBar.style.transition = 'width 8s linear';
+                progressBar.style.width = '100%';
+            }, 100);
+        });
     }
-};
+});
 
 // Função para simular o carregamento e troca de tela
 setTimeout(function() {

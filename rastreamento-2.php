@@ -17,11 +17,8 @@ $dataFutura = date('d/m/Y', strtotime('+24 hours'));
 
 @import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
-  &::before, &::after {
-    box-sizing: border-box;
-  }
 }
 
  /* Barra principal de navegação */
@@ -29,7 +26,8 @@ $dataFutura = date('d/m/Y', strtotime('+24 hours'));
       display: flex;
       align-items: center;
       background-color: #f7f7f7;
-      padding: 8px 16px;
+      width: 100%;
+      padding: 8px 0;
       border-bottom: 2px solid #ffc107;
     }
 
@@ -92,6 +90,7 @@ $dataFutura = date('d/m/Y', strtotime('+24 hours'));
         button:hover {
             background-color: #005f8c;
         }
+    }
 
 
 
@@ -100,95 +99,119 @@ $dataFutura = date('d/m/Y', strtotime('+24 hours'));
   width: 100%;
 }
 
-.accordion {
-  .accordion-item {
-    border-bottom: 1px solid $lightgray;
-    button[aria-expanded='true'] {
-      border-bottom: 1px solid $blue;
-    }
-  }
-  button {
-    position: relative;
-    display: block;
-    text-align: left;
-    width: 100%;
-    padding: 1em 0;
-    color: $text;
-    font-size: 1.15rem;
-    font-weight: 400;
-    border: none;
-    background: none;
-    outline: none;
-    &:hover, &:focus {
-      cursor: pointer;
-      color: $blue;
-      &::after {
-        cursor: pointer;
-        color: $blue;
-        border: 1px solid $blue;
-      }
-    }
-    .accordion-title {
-      padding: 1em 1.5em 1em 0;
-    }
-    .icon {
-      display: inline-block;
-      position: absolute;
-      top: 18px;
-      right: 0;
-      width: 22px;
-      height: 22px;
-      border: 1px solid;
-      border-radius: 22px;
-      &::before {
-        display: block;
-        position: absolute;
-        content: '';
-        top: 9px;
-        left: 5px;
-        width: 10px;
-        height: 2px;
-        background: currentColor;
-      }
-      &::after {
-        display: block;
-        position: absolute;
-        content: '';
-        top: 5px;
-        left: 9px;
-        width: 2px;
-        height: 10px;
-        background: currentColor;
-      }
-    }
-  }
-  button[aria-expanded='true'] {
-    color: $blue;
-    .icon {
-      &::after {
-        width: 0;
-      }
-    }
-    + .accordion-content {
-      opacity: 1;
-      max-height: 9em;
-      transition: all 200ms linear;
-      will-change: opacity, max-height;
-    }
-  }
-  .accordion-content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 200ms linear, max-height 200ms linear;
-    will-change: opacity, max-height;
-    p {
-      font-size: 1rem;
-      font-weight: 300;
-      margin: 2em 0;
-    }
-  }
-} 
+.timeline-faq {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.timeline-faq h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0 0 12px;
+  color: #333;
+}
+
+.accordion .accordion-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 4px 16px;
+  margin: 10px 0;
+  background: #ffffff;
+}
+
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 0.5em 0;
+  color: #000;
+  font-size: 0.95rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.accordion button::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  transition: transform .2s;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: #277AB8;
+}
+
+.accordion .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+
+.accordion .icon { display: none; }
+
+.accordion .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.accordion .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+  color: #277AB8;
+  border-bottom: 1px solid #277AB8;
+}
+
+.accordion button[aria-expanded='true']::after {
+  content: "–";
+  transform: translateY(-50%) scale(1.1);
+}
+
+.accordion button + .accordion-content {
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+  color: #333;
+  line-height: 1.55;
+}
+
+.accordion button[aria-expanded='true'] + .accordion-content {
+  display: block;
+  opacity: 1;
+  max-height: 1000px;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-content p {
+  font-size: 14px !important;
+  font-weight: 300;
+  margin: 10px 0 0;
+  color: #333 !important;
+}
     </style>
 
 </head>
